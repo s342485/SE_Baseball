@@ -32,7 +32,7 @@ class View:
         # TODO
 
         # Riga 1
-        self.dd_anno = ft.Dropdown(label="Anno", width=200, alignment=ft.alignment.top_left)
+        self.dd_anno = ft.Dropdown(label="Anno", width=200, alignment=ft.alignment.top_left, options=self.controller.get_years(), on_change=self.controller.get_team_by_year)
 
         row1 = ft.Row([ft.Container(self.txt_titolo, width=500),
                                ft.Container(None, width=0),
@@ -57,8 +57,6 @@ class View:
                                ft.Container(self.pulsante_percorso, width=250)],
                       alignment=ft.MainAxisAlignment.CENTER)
 
-        for i in range(0,200):
-            self.txt_out_squadre.controls.append(ft.Text(f"Squadra {i}"))
 
         self.txt_risultato = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
 
